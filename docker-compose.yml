@@ -1,0 +1,14 @@
+# Transform docker run command into YAML file
+# docker run -it -v /Users/steven/development/docker-complete:/app mynpm install express --save
+#
+# docker-compose run npm init (Run and execute the command only)
+# docker-compose run --rm npm init (Run and execute the command, then remove the container at its own)
+
+version: '3.8'
+services:
+  npm:
+    build: ./
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
